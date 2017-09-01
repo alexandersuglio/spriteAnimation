@@ -17,20 +17,23 @@
 var game = new Phaser.Game(2000, 600, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
 var grassfield;
 var Alex;
-
+var step;
+var soundVar;
 
 function preload() {
-
-game.load.image('background','assets/backgroundTest900x900.png');
+game.load.audio('music', 'firstTaste.mp3');
+game.load.image('background','assets/backgroundTest6000x900.png');
 game.load.spritesheet('Alex', 'assets/alex.png', 384, 384, 9);
-
+// game.load.image('step', 'assets/elevation.png');
 
 }
 
 function create() {
-	
+	soundVar= game.add.audio('music');
+	soundVar.play();
+	// step = game.add.image(0,600, 600,250, 'step');
 grassfield = game.add.tileSprite(0, 0, 2000, 600, 'background');
-this.Alex = game.add.sprite(0,250, 'Alex');
+this.Alex = game.add.sprite(500,250, 'Alex');
 this.Alex.animations.add('walkLeft', [0,1,2,3], 9, true);
 this.Alex.animations.add('stand', [4], 12, true);
 this.Alex.animations.add('walkRight', [5,6,7,8], 9, true);
@@ -47,16 +50,16 @@ function update() {
 if (leftKey.isDown)
 {
 
-this.Alex.x--;
+// this.Alex.x--;
 this.Alex.play('walkLeft');
-grassfield.tilePosition.x += 2;
+grassfield.tilePosition.x += 3;
 
 }
 else if (rightKey.isDown)
 {
-this.Alex.x++;
+// this.Alex.x++;
 this.Alex.play('walkRight');
-grassfield.tilePosition.x -= 2;
+grassfield.tilePosition.x -= 3;
 }
 else {
 	this.Alex.play('stand');
