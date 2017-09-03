@@ -24,7 +24,7 @@ var hill2;
 function preload() {
 
 game.load.image('background','assets/background.png');
-// game.load.image('cog', 'assets/cogresize.png');
+game.load.image('cog', 'assets/cogresize.png');
 game.load.image('hill2', 'assets/secondHills.png');
 game.load.image('hill', 'assets/Hill-test.png');
 game.load.spritesheet('Alex', 'assets/alex.png', 384, 384, 9);
@@ -35,10 +35,11 @@ game.load.spritesheet('Alex', 'assets/alex.png', 384, 384, 9);
 function create() {
 
 grassfield = game.add.tileSprite(0, 0, 2000, 600, 'background');
+cog = game.add.image(900,500, 'cog');
 hill2 = game.add.tileSprite(0, 400, 2000, 600, 'hill2');
-hill = game.add.tileSprite(-300, 400, 2000, 600, 'hill');
-// cog = game.add.image(0,-170, 'cog');
-// this.hill.anchor.set(0.05,0.6);
+hill = game.add.tileSprite(-300, 400, 3000, 600, 'hill');
+cog.anchor.set(.50,.50);
+// this.cog.body.position.set(900,300);
 
 this.Alex = game.add.sprite(500,250, 'Alex');
 this.Alex.animations.add('walkLeft', [0,1,2,3], 9, true);
@@ -61,6 +62,7 @@ this.Alex.play('walkLeft');
 grassfield.tilePosition.x += 3;
 hill.tilePosition.x += 3;
 hill2.tilePosition.x += 2.5;
+cog.position.x +=2.5;
 
 
 }
@@ -70,13 +72,14 @@ this.Alex.play('walkRight');
 grassfield.tilePosition.x -= 3;
 hill.tilePosition.x -= 3;
 hill2.tilePosition.x -= 2.5;
+cog.position.x -=2.5;
 
 
 }
 else {
 	this.Alex.play('stand');
 }
-
+cog.angle += 1;
 }
 
 </script>
