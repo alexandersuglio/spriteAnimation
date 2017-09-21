@@ -25,6 +25,10 @@ var cog2;
 var engineThing;
 var engineThing2; 
 
+var wheelPiece;
+var wheelPiece2;
+
+
 var hill;
 var hill2;
 var sun;
@@ -41,6 +45,8 @@ game.load.image('hill2', 'assets/secondHills.png');
 game.load.image('hill', 'assets/Hill-test.png');
 game.load.image('sun', 'assets/sun.png' );
 game.load.image('sunRig', 'assets/sunRig.png');
+game.load.image('wp1', 'assets/wheelpiece.png');
+game.load.image('wp2', 'assets/wheelpiece.png');
 game.load.spritesheet('Alex', 'assets/alex.png', 384, 384, 9);
 
 
@@ -48,10 +54,6 @@ game.load.spritesheet('Alex', 'assets/alex.png', 384, 384, 9);
 
 function create() {
 
-// sun = game.add.image(400, 0, 'sun');
-// sun.scale.setTo(0.30,0.30);
-// sunRig = game.add.image(0,0, 'sunRig');
-// sunRig.scale.setTo(0.25, 0.25);
 backstage = game.add.tileSprite(0,0, 2000,600, 'background2');
 engineThing = game.add.image(40,0, 'engineThing');
 engineThing.scale.setTo(2, 2.0);
@@ -59,14 +61,30 @@ engineThing.scale.setTo(2, 2.0);
 engineThing2 = game.add.image(800,320, 'engineThing2');
 engineThing2.scale.setTo(1.5, 1.5);
 
+sunRig = game.add.image(770, 0, 'sunRig');
+wheelpiece = game.add.image(825, 70, 'wp1');
+wheelpiece.scale.setTo(0.25,0.25);
+wheelpiece.anchor.set(.50,.50);
+
+
+
+wheelpiece2 = game.add.image(1035, 155, 'wp2');
+wheelpiece2.scale.setTo(0.25,0.25);
+wheelpiece2.anchor.set(.50,.50);
+
+
 grassfield = game.add.tileSprite(-200, 0, 2000, 600, 'background1');
 cog2 = game.add.image(378, 120, 'cog2');
 cog = game.add.image(500, 400, 'cog');
 cog2.scale.setTo(0.75,0.75);
 hill2 = game.add.tileSprite(0, 400, 2000, 600, 'hill2');
 hill = game.add.tileSprite(-300, 400, 3000, 600, 'hill');
+// sunRig.scale.setTo(0.25, 0.25);
 this.Alex = game.add.sprite(500,250, 'Alex');
 backgroundFront = game.add.image(-260, 0, 'backgroundFront');
+sun = game.add.image(1500, 100, 'sun');
+sun.anchor.set(.50,.50);
+sun.scale.setTo(0.75,0.75);
 backgroundFront.scale.setTo(1, 2.0);
 
 cog.anchor.set(.50,.50);
@@ -101,6 +119,11 @@ engineThing.position.x +=2.5;
 engineThing2.position.x +=2.5;
 
 backgroundFront.position.x +=2.5;
+
+sun.position.x +=2.5;
+sunRig.position.x +=2.5;
+wheelpiece.position.x +=2.5;
+wheelpiece2.position.x +=2.5;
 }
 
 else if (rightKey.isDown)
@@ -116,7 +139,10 @@ engineThing2.position.x -=2.5;
 
 backgroundFront.position.x -=2.5;
 
-
+sun.position.x -=2.5;
+sunRig.position.x -=2.5;
+wheelpiece.position.x -=2.5;
+wheelpiece2.position.x -=2.5;
 }
 else {
 	this.Alex.play('stand');
@@ -125,8 +151,9 @@ else {
 
 cog.angle += 1;
 cog2.angle -=1;
-
-
+sun.angle -=.5;
+wheelpiece.angle -=1;
+wheelpiece2.angle -=1;
 
 }
 
