@@ -55,7 +55,7 @@ game.load.spritesheet('Alex', 'assets/alex.png', 384, 384, 9);
 function create() {
 
 backstage = game.add.tileSprite(0,0, 2000,600, 'background2');
-engineThing = game.add.image(40,0, 'engineThing');
+engineThing = game.add.image(30,0, 'engineThing');
 engineThing.scale.setTo(2, 2.0);
 
 engineThing2 = game.add.image(800,320, 'engineThing2');
@@ -157,11 +157,33 @@ wheelpiece2.angle -=1;
 
 
 
-if (sun.position.x === 1000){
-	alert('youre at 2000');
-}
-}
+// if (sun.position.x === 1000){
+// 	alert('youre at 2000');
+// }
 
+
+if (engineThing.position.x > 30){
+
+	this.Alex.play('stand');
+	grassfield.tilePosition.x -= 3;
+hill.tilePosition.x -= 3;
+hill2.tilePosition.x -= 2.5;
+cog.position.x -=2.5;
+cog2.position.x -=2.5;
+engineThing.position.x-=2.5;
+
+engineThing2.position.x -=2.5;
+
+backgroundFront.position.x -=2.5;
+
+sun.position.x -=2.5;
+sunRig.position.x -=2.5;
+wheelpiece.position.x -=2.5;
+wheelpiece2.position.x-=2.5;
+
+
+}
+}
 
 
 </script>
