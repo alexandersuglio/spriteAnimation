@@ -62,13 +62,13 @@ engineThing2 = game.add.image(800,320, 'engineThing2');
 engineThing2.scale.setTo(1.5, 1.5);
 
 sunRig = game.add.image(770, 0, 'sunRig');
-wheelpiece = game.add.image(825, 70, 'wp1');
+wheelpiece = game.add.image(900, 70, 'wp1');
 wheelpiece.scale.setTo(0.25,0.25);
 wheelpiece.anchor.set(.50,.50);
 
 
 
-wheelpiece2 = game.add.image(1035, 155, 'wp2');
+wheelpiece2 = game.add.image(1110, 155, 'wp2');
 wheelpiece2.scale.setTo(0.25,0.25);
 wheelpiece2.anchor.set(.50,.50);
 
@@ -155,6 +155,11 @@ sun.angle -=.5;
 wheelpiece.angle -=1;
 wheelpiece2.angle -=1;
 
+
+
+if (sun.position.x === 1000){
+	alert('youre at 2000');
+}
 }
 
 
